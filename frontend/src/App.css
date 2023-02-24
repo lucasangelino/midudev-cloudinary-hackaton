@@ -1,0 +1,7 @@
+.hero-background {
+  background-image: url("./assets/images/hero-background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  clip-path: polygon(0 0, 100% 0%, 100% 75%, 0% 100%);
+}
