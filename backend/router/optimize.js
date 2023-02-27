@@ -5,13 +5,13 @@ const { validateField } = require("../middlewares/fieldValidator");
 
 const router = Router();
 
-router.get(
+router.post(
   "/",
-//   [
-//     check("weburl", "Web Url is mandatory").not().isEmpty(),
-//     check("weburl", "Web Url is mandatory").isURL(),
-//     validateField,
-//   ],
+  //   [
+  //     check("weburl", "Web Url is mandatory").not().isEmpty(),
+  //     check("weburl", "Web Url is mandatory").isURL(),
+  //     validateField,
+  //   ],
   optimize
 );
 

@@ -1,10 +1,24 @@
 import React from "react";
 
 export const Hero = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("submit");
+    const res = await fetch("http://localhost:4000/optipic/api/v1/optimize", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ url: "genbeta.com" }),
+    });
+    const data = await res.json();
+    console.log(data);
+  };
+
   return (
     <div className="px-4 py-40 mx-auto grid grid-cols-2 gap-2 max-w-6xl">
       <Title />
-      <Form />
+      <Form onSubmit={handleSubmit} />
     </div>
   );
 };
@@ -25,15 +39,15 @@ const Title = () => (
   </section>
 );
 
-const Form = () => (
-  <section class="flex flex-col justify-center items-center p-3">
-    <form action="" className="w-full">
+const Form = ({ onSubmit }) => (
+  <section className="flex flex-col justify-center items-center p-3">
+    <form action="" className="w-full" onSubmit={onSubmit}>
       <label htmlFor="urlInput" className="text-white text-2xl">
         Url de tu sitio
       </label>
       <input
         id="urlInput"
-        type="text"
+        type="website"
         placeholder="genbeta.com"
         className="w-full p-2 rounded-md bg-slate-200 text-slate-900"
       />
