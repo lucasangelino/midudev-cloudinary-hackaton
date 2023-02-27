@@ -1,18 +1,13 @@
 import React from "react";
+import { optimizeUrl } from "../services/optimizeUrl";
 
 export const Hero = () => {
+  const [optimizedNodes, setOptimizedNodes] = React.useState([]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("submit");
-    const res = await fetch("http://localhost:4000/optipic/api/v1/optimize", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ url: "genbeta.com" }),
-    });
-    const data = await res.json();
-    console.log(data);
+    const optimizedNodesList = await optimizeUrl("https://genbeta.com");
+    setOptimizedNodes(optimizedNodesList);
   };
 
   return (
