@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { optimizeUrl } from "../services/optimizeUrl";
+import { OptimizationContext } from "../context/Optimization";
 
 export const Hero = () => {
-  const [optimizedNodes, setOptimizedNodes] = React.useState([]);
+  const { optimizedNodes, setOptimizedNodes } = useContext(OptimizationContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
