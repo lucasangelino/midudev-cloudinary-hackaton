@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 
 // Components
-import { MainLayout } from "./components/MainLayout";
+import { HeaderLayout } from "./components/HeaderLayout";
 import { Hero } from "./components/Hero";
 import { Navbar } from "./components/Navbar";
 
@@ -12,13 +12,13 @@ import { Optimization } from "./components/Optimization";
 
 function App() {
   return (
-    <MainLayout>
-      <Navbar />
-      <OptimizationProvider>
+    <OptimizationProvider>
+      <HeaderLayout>
+        <Navbar />
         <Hero />
-        <Optimization />
-      </OptimizationProvider>
-    </MainLayout>
+      </HeaderLayout>
+      <Optimization />
+    </OptimizationProvider>
   );
 }
 
