@@ -9,7 +9,6 @@ async function optimizeWebImages(url) {
   const page = await context.newPage();
   await page.goto(url);
   await page.waitForTimeout(8000);
-  await page.screenshot({ path: `example.png` });
 
   const images = await page.evaluate(() => {
     const elements = document.querySelectorAll("img");
