@@ -15,4 +15,8 @@ router.post(
   optimize
 );
 
+router.get("/", (req, res) => {
+  res.send("Backend is alive");
+});
+
 module.exports = router;
