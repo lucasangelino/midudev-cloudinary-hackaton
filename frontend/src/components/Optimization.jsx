@@ -26,15 +26,19 @@ export const Optimization = () => {
                 </div>
                 <div className="collapse-content">
                   <hr class="h-px my-8 bg-gray-200 border-0" />
+                  <div className="flex flex-row gap-4">
                   <div className="flex flex-col items-center gap-4">
-                    <span>Codigo de prueba</span>
-                  <div className="mockup-code max-w-xl">
-                    <pre>
-                      <code>
-                      &lt;img width="28px" height="40px" <strong className="text-yellow-500">src="https://d2xe9cfud2dvf.cloudfront.net/Logos/mexico.svg"</strong> alt="logo-bandera-mexico" loading="lazy"&gt;&lt;/img&gt;
-                      </code>
-                    </pre>
+                    <span>Tu codigo optimizado deberia verse asi:</span>
+                    <div className="mockup-code max-w-xl">
+                      <pre>
+                        <code>
+                        &lt;img width="28px" height="40px" <strong className="text-yellow-500">src="https://d2xe9cfud2dvf.cloudfront.net/Logos/mexico.svg"</strong> alt="logo-bandera-mexico" loading="lazy"&gt;&lt;/img&gt;
+                        </code>
+                      </pre>
+                    </div>
                   </div>
+
+                    <button className="bg-blue-500 p-2">Copiar</button>
                   </div>
                 </div>
               </div>
