@@ -9,7 +9,7 @@ export const Optimization = () => {
 
   useEffect(() => {
     console.log('Optimizing... ');
-    optimizeImg();
+    //optimizeImg();
   }, []);
 
   return (
