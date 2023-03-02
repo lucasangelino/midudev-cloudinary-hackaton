@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { optimizeUrl } from "../services/optimizeUrl";
+import { getUrlInfo } from "../services/getUrlInfo";
 import { OptimizationContext } from "../context/Optimization";
 
 const URL = 'https://www.infobae.com/america/mundo/2023/03/01/el-parlamento-europeo-tambien-prohibio-tiktok-en-sus-dispositivos-de-trabajo/'
@@ -9,7 +9,7 @@ export const Hero = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const optimizedNodesList = await optimizeUrl(URL);
+    const optimizedNodesList = await getUrlInfo(URL);
     setOptimizedNodes(optimizedNodesList);
   };
 

@@ -1,14 +1,16 @@
 import React, { useContext, useEffect } from "react";
 import { OptimizationContext } from "../context/Optimization";
 import data from "../services/mock.json"
+import { optimizeImg } from "../services/optimizeImg";
 
 export const Optimization = () => {
   const { optimizedNodes } = useContext(OptimizationContext);
 
 
   useEffect(() => {
-    console.log('optimizedNodes');
-  }, [optimizedNodes]);
+    console.log('Optimizing... ');
+    optimizeImg();
+  }, []);
 
   return (
     <div className="my-20 px-10 max-w-4xl mx-auto">

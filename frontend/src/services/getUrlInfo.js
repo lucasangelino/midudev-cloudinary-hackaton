@@ -1,4 +1,4 @@
-export async function optimizeUrl(url) {
+export async function getUrlInfo(url) {
   const res = await fetch("http://localhost:4000/optipic/api/v1/optimize", {
     method: "POST",
     headers: {
