@@ -1,0 +1,22 @@
+{
+    "asset_id": "7e3c45458d2428ee190e5a7a932870e0",
+    "public_id": "default/zvorardwfyh5zqbosyfm",
+    "version": 1677796352,
+    "version_id": "33b85a290b2bb7c4788759ca7d0930eb",
+    "signature": "9d83fd5a07f9c35ee7950faab2675abdf076c538",
+    "width": 50,
+    "height": 50,
+    "format": "jpg",
+    "resource_type": "image",
+    "created_at": "2023-03-02T22:32:32Z",
+    "tags": [],
+    "bytes": 1645,
+    "type": "upload",
+    "etag": "942e3870f9de9b2d2027d1252f6591d0",
+    "placeholder": false,
+    "url": "http://res.cloudinary.com/lucasangelinodev/image/upload/v1677796352/default/zvorardwfyh5zqbosyfm.jpg",
+    "secure_url": "https://res.cloudinary.com/lucasangelinodev/image/upload/v1677796352/default/zvorardwfyh5zqbosyfm.jpg",
+    "folder": "default",
+    "access_mode": "public",
+    "original_filename": "50"
+}

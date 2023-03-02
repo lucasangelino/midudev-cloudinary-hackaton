@@ -1,11 +1,4 @@
 import {Cloudinary} from "@cloudinary/url-gen";
-
-// cloudinary.config({
-//     cloud_name: import.meta.env.CLOUDINARY_CLOUD_NAME,
-//     api_key: import.meta.env.CLOUDINARY_API_KEY,
-//     api_secret: import.meta.env.CLOUDINARY_API_SECRET
-// });
-
   const cloudinary = new Cloudinary({
     cloud: {
       cloudName: "lucasangelinodev",
@@ -16,8 +9,6 @@ import {Cloudinary} from "@cloudinary/url-gen";
   })
 
 export async function optimizeImg({url = "https://picsum.photos/50/50", optimizationId = "default"}) {
-
-
     if (!url) return null;
 
     try {
@@ -26,8 +17,6 @@ export async function optimizeImg({url = "https://picsum.photos/50/50", optimiza
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
-                    // api key
-
                 },
                 body: JSON.stringify({
                     file: url,
