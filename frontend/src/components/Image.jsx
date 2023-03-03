@@ -2,7 +2,6 @@ import React from "react";
 import { useImage } from "../hooks/useImage";
 
 export const Image = ({imgToOptimize}) => {
-  console.log('imgToOptimize: --> ', imgToOptimize);
     const { 
         isLoading, 
         hasError, 
@@ -15,7 +14,9 @@ export const Image = ({imgToOptimize}) => {
         outerHtml,
         bytes,
         secure_url,
-        originalSize
+        originalSize,
+        oldFormat,
+        newFormat,
     } = imageData;
 
     const Error = () => <span className="bg-red-500 text-white p-1 rounded-md">Error</span>;
@@ -50,7 +51,7 @@ export const Image = ({imgToOptimize}) => {
                         {alt}
                       </h4>
                       <div className="badge badge-outline">{nodeName}</div>
-                      <div className="badge badge-outline">JPG</div>
+                      <div className="badge badge-outline">{ oldFormat }</div>
                     </div>
                     <span className="text-slate-400 text-xs">
                       {alt}
@@ -75,7 +76,7 @@ export const Image = ({imgToOptimize}) => {
                         </div>
                         <div className="flex flex-row gap-2">
                           <span className="text-sm">Nuevo formato:</span> 
-                          <div className="badge badge-outline">WEBP</div>
+                          <div className="badge badge-outline text-green-500">{newFormat}</div>
                         </div>
                       </div>
                       <button type="button" className="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Descargar</button>

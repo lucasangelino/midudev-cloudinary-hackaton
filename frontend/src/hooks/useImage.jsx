@@ -19,7 +19,13 @@ export const useImage = ({imgToOptimize}) => {
         created_at: '',
         bytes: 0,
         originalSize: 0,
+        oldFormat: '',
+        newFormat: '',
     });
+
+    const changeImageFormat = (url, format) => {
+        return url.replace(/\.([^.]+)$/, `.${format}`);
+    }
 
     useEffect(() => {
         async function getImgNode() {
@@ -30,7 +36,7 @@ export const useImage = ({imgToOptimize}) => {
                 console.log('optimizedImg: --> ', optimizedImg);
                 return setImageData({
                     ...imageData,
-                    // optimizedSize: getImageSizeInKb(optimizedImg.secure_url),
+                    optimizedSize: getImageSizeInKb(optimizedImg.secure_url),
                     secure_url: optimizedImg.secure_url.replace('.jpg', '.webp'),
                     alt: imageNode.alt,
                     nodeName: imageNode.nodeName,
@@ -40,6 +46,8 @@ export const useImage = ({imgToOptimize}) => {
                     original_filename: optimizedImg.original_filename,
                     created_at: optimizedImg.created_at,
                     bytes: optimizedImg.bytes,
+                    oldFormat: 'JPG',
+                    newFormat: 'WEBP',
                 });
             } catch (error) {
                 setHasError(false);
@@ -52,32 +60,25 @@ export const useImage = ({imgToOptimize}) => {
         getImgNode();
     }, [imageNode]);
 
-    const getImageSizeInKb = async () => {
+    const getImageSizeInKb = async (url) => {
         try {
-            const response = await fetch(
-                imgToOptimize.src,
-                {
-                    method: 'GET',
-                    mode: 'no-cors',
-                    headers: {
-                        'Access-Control-Allow-Origin': '*',
-                    },
-                }
-            );
-            const blob = await response.blob();
-            const size = blob.size / 1024;
-            console.log('size: --> ', size);
+            const img = new Image();
 
-            setImageData({
-                ...imageData,
-                originalSize: size,
-            });
+            img.onload = () => {
+                const sizeInKB = Math.round(img.src.length / 1024);
+                console.log('size: --> ', sizeInKB);
+                return sizeInKB;
+            };
+
+            img.onerror = () => {
+                new Error('Error al cargar la imagen');
+            };
+
+            img.src = url;
+
         } catch (error) {
             console.log('error: --> ', error);
-            setImageData({
-                ...imageData,
-                originalSize: 'N/A',
-            });
+            return 'N/A'
         }
     }
 
@@ -85,5 +86,6 @@ export const useImage = ({imgToOptimize}) => {
         isLoading, 
         hasError, 
         imageData,
+        changeImageFormat,
     }
 };

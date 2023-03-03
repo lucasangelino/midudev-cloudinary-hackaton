@@ -4,7 +4,7 @@ console.log("url", url)
     if (!url) return null;
 
     try {
-        const res = await fetch("https://api.cloudinary.com/v1_1/lucasangelinodev/upload",
+        const res = await fetch("https://api.cloudinary.com/v1_1/lucasangelinodev/upload/",
             {
                 method: "POST",
                 headers: {
