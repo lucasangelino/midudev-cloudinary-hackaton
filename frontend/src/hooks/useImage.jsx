@@ -31,7 +31,7 @@ export const useImage = ({imgToOptimize}) => {
                 return setImageData({
                     ...imageData,
                     // optimizedSize: getImageSizeInKb(optimizedImg.secure_url),
-                    secure_url: optimizedImg.secure_url,
+                    secure_url: optimizedImg.secure_url.replace('.jpg', '.webp'),
                     alt: imageNode.alt,
                     nodeName: imageNode.nodeName,
                     outerHtml: optimizedImg.outerHtml,
@@ -63,11 +63,10 @@ export const useImage = ({imgToOptimize}) => {
                         'Access-Control-Allow-Origin': '*',
                     },
                 }
-                
-
             );
             const blob = await response.blob();
             const size = blob.size / 1024;
+            console.log('size: --> ', size);
 
             setImageData({
                 ...imageData,

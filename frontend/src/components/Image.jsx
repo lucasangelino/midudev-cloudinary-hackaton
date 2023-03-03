@@ -70,7 +70,7 @@ export const Image = ({imgToOptimize}) => {
                       <div className="flex flex-col gap-2">
                         <div className="flex flex-row items-center gap-2">
                           <span className="text-sm">Tamaño optimizado:</span> 
-                          <span className="text-sm text-green-600 font-bold">{ bytes }</span>
+                          <span className="text-sm text-green-600 font-bold">{ (bytes / 2014).toFixed(2) } Kb</span>
                           <div className="badge text-green-500 badge-outline">AHORRO 54%</div>
                         </div>
                         <div className="flex flex-row gap-2">
