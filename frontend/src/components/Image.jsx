@@ -1,11 +1,33 @@
 import React from "react";
 import { useImage } from "../hooks/useImage";
 
+export const Image = ({imgToOptimize}) => {
+  console.log('imgToOptimize: --> ', imgToOptimize);
+    const { 
+        isLoading, 
+        hasError, 
+        imageData,
+    } = useImage({imgToOptimize});
 
-export const Image = () => {
-    const { isLoading, imageData } = useImage();
+    const {
+        alt,
+        nodeName,
+        outerHtml,
+        bytes,
+        secure_url,
+        originalSize
+    } = imageData;
 
-    console.log('isLoading: ', isLoading);
+    const Error = () => <span className="bg-red-500 text-white p-1 rounded-md">Error</span>;
+
+
+    if (isLoading) {
+        return <span className="bg-yellow-500 text-white p-1 rounded-md">Loading...</span>;
+    }
+
+    if (hasError) {
+        return <Error />;
+    }
 
     return (
         <div
@@ -16,38 +38,39 @@ export const Image = () => {
               <div className="collapse-title text-md font-medium">
                 <div className="flex flex-row gap-4">
                   <img
-                    src="https://picsum.photos/50/50"
+                    src={secure_url}
                     height={50}
                     width={50}
-                    alt=""
-                    className="rounded-md"
+                    alt={alt}
+                    className="rounded-md h-20 w-20 object-contain"
                   />
                   <div className="flex flex-col gap-1">
                     <div className="flex flex-row items-center gap-4">
                       <h4 className="text-slate-900 font-bold">
-                        Titulo de la Imagen
+                        {alt}
                       </h4>
+                      <div className="badge badge-outline">{nodeName}</div>
                       <div className="badge badge-outline">JPG</div>
                     </div>
                     <span className="text-slate-400 text-xs">
-                      an analizado a los profesionales más demandados{" "}
+                      {alt}
                     </span>
                     <div className="flex flex-row gap-2 items-center">
                       <span className="text-xs">Tamaño actual: </span>
-                      <span className="text-xs text-red-600">3.6MB</span>
+                      <span className="text-xs text-red-600">{ originalSize }</span>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="collapse-content">
-                <hr class="h-px my-8 bg-gray-200 border-0" />
+                <hr className="h-px my-8 bg-gray-200 border-0" />
                 <div className="flex flex-row gap-4">
                   <div className="flex flex-col gap-4">
                     <div className="flex flex-row justify-between items-center">
                       <div className="flex flex-col gap-2">
                         <div className="flex flex-row items-center gap-2">
                           <span className="text-sm">Tamaño optimizado:</span> 
-                          <span className="text-sm text-green-600 font-bold">1.2KB</span>
+                          <span className="text-sm text-green-600 font-bold">{ bytes }</span>
                           <div className="badge text-green-500 badge-outline">AHORRO 54%</div>
                         </div>
                         <div className="flex flex-row gap-2">
@@ -55,7 +78,7 @@ export const Image = () => {
                           <div className="badge badge-outline">WEBP</div>
                         </div>
                       </div>
-                      <button type="button" class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Descargar</button>
+                      <button type="button" className="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Descargar</button>
                     </div>
                     <div className="mockup-code max-w-3xl my-2">
                       <pre>

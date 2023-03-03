@@ -4,13 +4,13 @@ export const OptimizationContext = createContext();
 OptimizationContext.displayName = "ImagesContext";
 
 export function OptimizationProvider({ children }) {
-  const [optimizedNodes, setOptimizedNodes] = React.useState([]);
+  const [nodesToOptimize, setNodesToOptimize] = React.useState([]);
 
   return (
     <OptimizationContext.Provider
       value={{
-        optimizedNodes,
-        setOptimizedNodes,
+        nodesToOptimize,
+        setNodesToOptimize,
       }}
     >
       {children}

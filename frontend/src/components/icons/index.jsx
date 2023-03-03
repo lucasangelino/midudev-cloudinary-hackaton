@@ -2,7 +2,7 @@ import React from "react";
 
 function IconWithLabel({color = "fff", size= "50"}) {
     return (
-       <svg width="100" height="100" viewBox="0 0 285 239.74681321556855" class="css-1j8o68f">
+       <svg width="100" height="100" viewBox="0 0 285 239.74681321556855" className="css-1j8o68f">
         <defs id="SvgjsDefs4451">
             <linearGradient id="SvgjsLinearGradient4456">
                 <stop id="SvgjsStop4457" stopColor="#7f00ff" offset="0"></stop>

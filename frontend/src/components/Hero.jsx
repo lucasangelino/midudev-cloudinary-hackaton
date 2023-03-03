@@ -5,12 +5,12 @@ import { OptimizationContext } from "../context/Optimization";
 const URL = 'https://www.infobae.com/america/mundo/2023/03/01/el-parlamento-europeo-tambien-prohibio-tiktok-en-sus-dispositivos-de-trabajo/'
 
 export const Hero = () => {
-  const { optimizedNodes, setOptimizedNodes } = useContext(OptimizationContext);
+  const { nodesToOptimize, setNodesToOptimize } = useContext(OptimizationContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const optimizedNodesList = await getUrlInfo(URL);
-    setOptimizedNodes(optimizedNodesList);
+    const nodesToOptimize = await getUrlInfo(URL);
+    setNodesToOptimize(nodesToOptimize);
   };
 
   return (
@@ -26,7 +26,7 @@ const Title = () => (
     <h1 className="text-7xl text-white font-bold">OptiPic</h1>
     <p className="text-xl text-slate-300">
       Dale un{" "}
-      <span class="bg-gray-100 text-gray-800 text-lg font-medium px-2.5 py-0.5 rounded-full ">boost</span> a tu
+      <span className="bg-gray-100 text-gray-800 text-lg font-medium px-2.5 py-0.5 rounded-full ">boost</span> a tu
       web! Optipic te permite optimizar las imagenes de tu sitio en cuestion de segundos. Solo introduce tu URL y Optipic hará el resto. {" "
       }
     </p>

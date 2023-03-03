@@ -1,14 +1,6 @@
-import {Cloudinary} from "@cloudinary/url-gen";
-  const cloudinary = new Cloudinary({
-    cloud: {
-      cloudName: "lucasangelinodev",
-    },
-    url: {
-      secure: true,
-    },
-  })
+export async function optimizeImg(url, optimizationId) {
 
-export async function optimizeImg({url = "https://picsum.photos/50/50", optimizationId = "default"}) {
+console.log("url", url)
     if (!url) return null;
 
     try {
@@ -25,8 +17,7 @@ export async function optimizeImg({url = "https://picsum.photos/50/50", optimiza
             })
         })
         const data = await res.json()
-        console.log('data: ', data)
-        return data.secure_url
+        return data
     } catch (error) {
         throw new Error("Error when optimizing image")
     }
