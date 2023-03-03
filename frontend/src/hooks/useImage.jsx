@@ -8,10 +8,15 @@ export const useImage = (url) => {
 
     useEffect(async () => {
         setIsLoading(true);
-        const res = await optimizeImg(imageUrl);
-        const imageData = await res.json();
-        setImageData(imageData);
-        setIsLoading(false);
+        const interval = setInterval(() => {
+            setIsLoading(false);
+        }, 3000);
+        // const res = await optimizeImg(imageUrl);
+        // const imageData = await res.json();
+        // setImageData(imageData);
+
+        return () => clearInterval(interval);
+        
     }, [imageUrl]);
 
     return {isLoading, imageData}

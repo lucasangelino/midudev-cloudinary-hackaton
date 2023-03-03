@@ -5,8 +5,8 @@ function IconWithLabel({color = "fff", size= "50"}) {
        <svg width="100" height="100" viewBox="0 0 285 239.74681321556855" class="css-1j8o68f">
         <defs id="SvgjsDefs4451">
             <linearGradient id="SvgjsLinearGradient4456">
-                <stop id="SvgjsStop4457" stop-color="#7f00ff" offset="0"></stop>
-                <stop id="SvgjsStop4458" stop-color="#e100ff" offset="1"></stop>
+                <stop id="SvgjsStop4457" stopColor="#7f00ff" offset="0"></stop>
+                <stop id="SvgjsStop4458" stopColor="#e100ff" offset="1"></stop>
             </linearGradient>
         </defs>
         <g id="SvgjsG4452" featurekey="symbolFeature-0" transform="matrix(2.8205699844458922,0,0,2.8205699844458922,-64.4254018287912,-7.050213158843848)" fill="url(#SvgjsLinearGradient4456)">
