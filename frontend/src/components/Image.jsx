@@ -1,5 +1,5 @@
 import React from "react";
-// import download from 'image-downloader';
+import { ImageLoading } from "./ImageLoading"
 import { useImage } from "../hooks/useImage";
 
 export const Image = ({imgToOptimize}) => {
@@ -8,21 +8,6 @@ export const Image = ({imgToOptimize}) => {
         hasError, 
         imageData,
     } = useImage({imgToOptimize});
-
-    // const options = {
-    //     url: imageData.secure_url,
-    //     dest: 'C:\\Users\\josep\\Desktop\\images\\' + imageData.original_filename
-    // }
-
-    // const saveImage = () => {
-    //     download.image(options)
-    //         .then(({ filename }) => {
-    //             console.log('File saved to', filename)
-    //         })
-    //         .catch((err) => {
-    //             throw err
-    //         })
-    // }
 
     const {
         alt,
@@ -39,7 +24,7 @@ export const Image = ({imgToOptimize}) => {
 
 
     if (isLoading) {
-        return <span className="bg-yellow-500 text-white p-1 rounded-md">Loading...</span>;
+      return <ImageLoading />;
     }
 
     if (hasError) {

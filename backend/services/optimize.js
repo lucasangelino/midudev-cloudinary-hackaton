@@ -2,7 +2,6 @@ const playwright = require("playwright");
 const { webkit } = require("playwright");
 
 async function optimizeWebImages(url) {
-  console.log(`Crwaling url: ${url}`);
 
   const browser = await webkit.launch();
   const context = await browser.newContext();

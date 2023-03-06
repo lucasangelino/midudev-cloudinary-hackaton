@@ -4,7 +4,7 @@ import { getImageSizeInKb, getImageExtension } from "../utils/image";
 
 export const useImage = ({imgToOptimize}) => {
     const [imageNode, setImageNode] = useState(imgToOptimize);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [hasError, setHasError] = useState(false);
     const [imageData, setImageData] = useState({
         originalSize: 0,
@@ -29,7 +29,6 @@ export const useImage = ({imgToOptimize}) => {
 
     useEffect(() => {
         async function getImgNode() {
-            setIsLoading(true);
             try {
                 const optimizedImg = await optimizeImg(imageNode.src, 'default');
                 return setImageData({
