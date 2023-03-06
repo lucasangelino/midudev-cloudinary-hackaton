@@ -20,14 +20,21 @@ export const Image = ({imgToOptimize}) => {
         newFormat,
     } = imageData;
 
-    const Error = () => <span className="bg-red-500 text-white p-1 rounded-md">Error</span>;
+    const Error = () => <div className="collapse collapse-arrow border-2 bg-red-200 p-4 border-red-700 shadow-sm rounded-box">
+      <strong className="text-red-500">Ups:</strong>
+      <p className="text-red-500">Al parecer esta imagen tiene algun error y no pudo ser optimizada</p>
+    </div>
 
 
     if (isLoading) {
       return <ImageLoading />;
     }
 
-    if (hasError) {
+    if (!secure_url) {
+        return <Error />;
+    }
+
+    if (!alt) {
         return <Error />;
     }
 
@@ -52,7 +59,7 @@ export const Image = ({imgToOptimize}) => {
                         {alt}
                       </h4>
                       <div className="badge badge-outline">{nodeName}</div>
-                      <div className="badge badge-outline">{ oldFormat }</div>
+                      <div className="badge badge-outline">{ oldFormat.slice(0,10) }</div>
                     </div>
                     <span className="text-slate-400 text-xs">
                       {alt}
