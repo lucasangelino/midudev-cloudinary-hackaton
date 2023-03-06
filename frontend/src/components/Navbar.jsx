@@ -16,13 +16,7 @@ export const Navbar = () => {
     <div className="hidden w-full md:block md:w-auto" id="navbar-default">
       <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0">
         <li>
-          <a href="#" className="block py-2 pl-3 pr-4 text-gray-700 rounded">Hackaton</a>
-        </li>
-        <li>
-          <a href="#" className="block py-2 pl-3 pr-4 text-gray-700 rounded">¿Como se usa?</a>
-        </li>
-        <li>
-          <a href="#" className="block py-2 pl-3 pr-4 text-gray-700 rounded">Github</a>
+          <a href="https://github.com/lucasangelino/midudev-cloudinary-hackaton" target="_blank" className="block py-2 pl-3 pr-4 text-gray-700 rounded">Github</a>
         </li>
       </ul>
     </div>

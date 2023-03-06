@@ -71,6 +71,7 @@ const Title = () => (
       <span>Rápido.</span>{" "}
       <span>Gratis.</span>
     </p>
+    <span className="text-xs">powered by <span className="text-xl text-blue-900 font-bold">Cloudinary</span></span>
   </section>
 );
 
@@ -113,8 +114,8 @@ const Form = ({ onSubmit, onChange, isLoading, hasError }) => (
       <h3 className="text-xs">¿No hay url? Prueba una de estas:</h3>
       <ul className="flex flex-row justify-start items-center gap-4">
         <li className="">
-          <a href="" className="text-blue-700 bg-white p-2 rounded-md font-semibold">
-            genbeta.com
+          <a href="" className="text-slate-200 border-2 p-2 rounded-md font-semibold">
+            https://www.genbeta.com
           </a>
         </li>
       </ul>
