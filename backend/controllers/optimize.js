@@ -10,7 +10,7 @@ const optimize = async (req, res = response) => {
       ok: false,
       msg: "Error al optimizar las imágenes",
     });
-  }
+  } 
   
   res.json({
     ok: true,
