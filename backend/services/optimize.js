@@ -30,6 +30,7 @@ async function optimizeWebImages(url) {
     await browser.close();
     return images;
   } catch (error) {
+    console.log(error);
     return null;
   }
 }
