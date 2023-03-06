@@ -5,6 +5,7 @@ import { OptimizationContext } from "../context/Optimization";
 export const Hero = () => {
   const [URL, setURL] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
+  const [hasError, setError] = React.useState(false);
   const { nodesToOptimize, setNodesToOptimize } = useContext(OptimizationContext);
 
   const handleChange = (e) => {
@@ -14,7 +15,11 @@ export const Hero = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
+    setError(false);
     const nodesToOptimize = await getUrlInfo(URL);
+    if (!nodesToOptimize.ok) {
+      setError(true);
+    }
     setNodesToOptimize(nodesToOptimize);
     setIsLoading(false);
   };
@@ -22,7 +27,32 @@ export const Hero = () => {
   return (
     <div className="mt-12 mb-20 mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl">
       <Title />
-      <Form onSubmit={handleSubmit} onChange={handleChange} isLoading={isLoading} />
+      <Form onSubmit={handleSubmit} onChange={handleChange} isLoading={isLoading} hasError={hasError} />
+
+      {
+        isLoading ? (
+              <div class="flex p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
+                <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                <span class="sr-only">Info</span>
+                <div>
+                  <span class="font-medium">Cargando... </span> Optipic esta buscando las imagenes de tu sitio. Esto puede tardar unos segundos...
+                </div>
+              </div>
+        ) : ''
+      }
+
+
+      {
+        hasError ? (
+          <div class="flex p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+            <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+            <span class="sr-only">Info</span>
+            <div>
+              <span class="font-medium">Error</span> Algo salió mal!
+            </div>
+          </div>
+      ) : ''
+    }
     </div>
   );
 };
@@ -44,7 +74,11 @@ const Title = () => (
   </section>
 );
 
-const Form = ({ onSubmit, onChange, isLoading }) => (
+const Form = ({ onSubmit, onChange, isLoading, hasError }) => (
+  
+  // ❌ No estoy para nada orgulloso de este prop drilling, pero no tengo mas tiempo para entregar el codigo.
+  // TODO: Refactorizar esta porqueria de componente.
+
   <>
   <section className="flex flex-col justify-center items-start gap-2 py-3">
     <form action="" className="w-full flex flex-col gap-2" onSubmit={onSubmit}>
@@ -87,16 +121,8 @@ const Form = ({ onSubmit, onChange, isLoading }) => (
     </div>
   </section>
 
-    {
-      isLoading ? (
-        <div class="flex p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
-          <svg aria-hidden="true" class="flex-shrink-0 inline w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
-          <span class="sr-only">Info</span>
-          <div>
-            <span class="font-medium">Cargando... </span> Optipic esta buscando las imagenes de tu sitio. Esto puede tardar unos segundos...
-          </div>
-        </div>
-      ) : ''
-    }
+
+
+    
   </>
 );
