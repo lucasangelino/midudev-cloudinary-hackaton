@@ -20,11 +20,10 @@ export const Image = ({imgToOptimize}) => {
         newFormat,
     } = imageData;
 
-    const Error = () => <div className="collapse collapse-arrow border-2 bg-red-200 p-4 border-red-700 shadow-sm rounded-box">
+    const Error = () => <div className="border-2 bg-red-200 p-4 border-red-700 shadow-sm rounded-box">
       <strong className="text-red-500">Ups:</strong>
       <p className="text-red-500">Al parecer esta imagen tiene algun error y no pudo ser optimizada</p>
     </div>
-
 
     if (isLoading) {
       return <ImageLoading />;
@@ -87,7 +86,10 @@ export const Image = ({imgToOptimize}) => {
                           <div className="badge badge-outline text-green-500">{newFormat}</div>
                         </div>
                       </div>
-                      <button type="button" className="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Descargar</button>
+                      <a download href={secure_url} target="_blank" title="Descargar imagen" className="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                        {/* <img src={secure_url} alt={alt} height={'50px'} /> */}
+                        Descargar
+                      </a> 
                     </div>
                     <h3>Tu codigo deberia verse así:</h3>
                     <div className="mockup-code max-w-3xl my-2">
