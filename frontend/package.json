@@ -16,6 +16,7 @@
     "cloudinary": "^1.34.0",
     "daisyui": "^2.51.0",
     "dropzone": "6.0.0-beta.2",
+    "image-downloader": "^4.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

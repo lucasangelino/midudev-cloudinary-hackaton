@@ -1,4 +1,5 @@
 import React from "react";
+// import download from 'image-downloader';
 import { useImage } from "../hooks/useImage";
 
 export const Image = ({imgToOptimize}) => {
@@ -7,6 +8,21 @@ export const Image = ({imgToOptimize}) => {
         hasError, 
         imageData,
     } = useImage({imgToOptimize});
+
+    // const options = {
+    //     url: imageData.secure_url,
+    //     dest: 'C:\\Users\\josep\\Desktop\\images\\' + imageData.original_filename
+    // }
+
+    // const saveImage = () => {
+    //     download.image(options)
+    //         .then(({ filename }) => {
+    //             console.log('File saved to', filename)
+    //         })
+    //         .catch((err) => {
+    //             throw err
+    //         })
+    // }
 
     const {
         alt,
@@ -56,10 +72,10 @@ export const Image = ({imgToOptimize}) => {
                     <span className="text-slate-400 text-xs">
                       {alt}
                     </span>
-                    <div className="flex flex-row gap-2 items-center">
-                      <span className="text-xs">Tamaño actual: </span>
+                    {/* <div className="flex flex-row gap-2 items-center">
+                      <span className="text-xs">Tamaño en el sitio: </span>
                       <span className="text-xs text-red-600">{ originalSize }</span>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>
@@ -71,8 +87,8 @@ export const Image = ({imgToOptimize}) => {
                       <div className="flex flex-col gap-2">
                         <div className="flex flex-row items-center gap-2">
                           <span className="text-sm">Tamaño optimizado:</span> 
-                          <span className="text-sm text-green-600 font-bold">{ (bytes / 2014).toFixed(2) } Kb</span>
-                          <div className="badge text-green-500 badge-outline">AHORRO 54%</div>
+                          <span className="text-sm text-green-600 font-bold">{ (bytes / 2014).toFixed(1) } Kb</span>
+                          {/* <div className="badge text-green-500 badge-outline">AHORRO 54%</div> */}
                         </div>
                         <div className="flex flex-row gap-2">
                           <span className="text-sm">Nuevo formato:</span> 
@@ -81,14 +97,16 @@ export const Image = ({imgToOptimize}) => {
                       </div>
                       <button type="button" className="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">Descargar</button>
                     </div>
+                    <h3>Tu codigo deberia verse así:</h3>
                     <div className="mockup-code max-w-3xl my-2">
                       <pre>
                         <code>
-                          &lt;img width="28px" height="40px"{" "}
+                          &lt;img {""}
                           <strong className="text-yellow-500">
-                            src="https://d2xe9cfud2dvf.cloudfront.net/Logos/mexico.svg"
+                          <span>{`src=${secure_url}`}</span>
                           </strong>{" "}
-                          alt="logo-bandera-mexico"
+                          alt="cloudinary image"
+                          width="28px" height="40px"{" "}
                           loading="lazy"&gt;&lt;/img&gt;
                         </code>
                       </pre>

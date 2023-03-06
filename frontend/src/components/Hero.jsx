@@ -2,10 +2,13 @@ import React, { useContext } from "react";
 import { getUrlInfo } from "../services/getUrlInfo";
 import { OptimizationContext } from "../context/Optimization";
 
-const URL = 'https://www.infobae.com/america/mundo/2023/03/01/el-parlamento-europeo-tambien-prohibio-tiktok-en-sus-dispositivos-de-trabajo/'
-
 export const Hero = () => {
+  const [URL, setURL] = React.useState("");
   const { nodesToOptimize, setNodesToOptimize } = useContext(OptimizationContext);
+
+  const handleChange = (e) => {
+    setURL(e.target.value);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,7 +19,7 @@ export const Hero = () => {
   return (
     <div className="mt-12 mb-20 mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl">
       <Title />
-      <Form onSubmit={handleSubmit} />
+      <Form onSubmit={handleSubmit} onChange={handleChange}/>
     </div>
   );
 };
@@ -38,7 +41,7 @@ const Title = () => (
   </section>
 );
 
-const Form = ({ onSubmit }) => (
+const Form = ({ onSubmit, onChange }) => (
   <section className="flex flex-col justify-center items-start gap-2 py-3">
     <form action="" className="w-full flex flex-col gap-2" onSubmit={onSubmit}>
       <label htmlFor="urlInput" className="text-white text-2xl">
@@ -49,6 +52,7 @@ const Form = ({ onSubmit }) => (
         type="website"
         placeholder="genbeta.com"
         className="w-full p-2 rounded-md bg-slate-200 text-slate-900"
+        onChange={onChange}
       />
     </form>
     <div className="flex flex-col justify-start items-start text-white gap-4">

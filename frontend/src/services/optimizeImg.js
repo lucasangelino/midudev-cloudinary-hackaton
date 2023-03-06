@@ -1,6 +1,5 @@
 export async function optimizeImg(url, optimizationId) {
 
-console.log("url", url)
     if (!url) return null;
 
     try {
@@ -13,7 +12,7 @@ console.log("url", url)
                 body: JSON.stringify({
                     file: url,
                     upload_preset: "bazoobaraz",
-                    folder: optimizationId
+                    folder: optimizationId,
             })
         })
         const data = await res.json()
