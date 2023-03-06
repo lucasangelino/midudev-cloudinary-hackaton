@@ -59,13 +59,8 @@ const Form = ({ onSubmit, onChange }) => (
       <h3 className="text-xs">¿No hay url? Prueba una de estas:</h3>
       <ul className="flex flex-row justify-start items-center gap-4">
         <li className="">
-          <a href="#" className="text-blue-700 bg-white p-2 rounded-md font-semibold">
+          <a href="" className="text-blue-700 bg-white p-2 rounded-md font-semibold">
             genbeta.com
-          </a>
-        </li>
-        <li className="">
-        <a href="#" className="text-blue-700 bg-white p-2 rounded-md font-semibold shadow-xl">
-            infobae.com
           </a>
         </li>
       </ul>
