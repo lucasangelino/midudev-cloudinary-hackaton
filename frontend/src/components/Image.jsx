@@ -37,6 +37,10 @@ export const Image = ({imgToOptimize}) => {
         return <Error />;
     }
 
+    if (hasError) {
+        return <Error />;
+    }
+
     return (
         <div
               tabIndex={0}
