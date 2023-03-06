@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev" : "concurrently \"cd frontend && npm run dev\" \"cd backend && nodemon index.js\""
+    "dev" : "concurrently \"cd frontend && pnpm i && npm run dev\" \"cd backend && pnpm i && nodemon index.js\""
   },
   "repository": {
     "type": "git",
