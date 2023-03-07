@@ -3,7 +3,7 @@ export async function optimizeImg(url, optimizationId) {
     if (!url) return null;
 
     try {
-        const res = await fetch("https://api.cloudinary.com/v1_1/lucasangelinodev/upload/",
+        const res = await fetch("https://api.cloudinary.com/",
             {
                 method: "POST",
                 headers: {
@@ -11,7 +11,6 @@ export async function optimizeImg(url, optimizationId) {
                 },
                 body: JSON.stringify({
                     file: url,
-                    upload_preset: "bazoobaraz",
                     folder: optimizationId,
             })
         })
